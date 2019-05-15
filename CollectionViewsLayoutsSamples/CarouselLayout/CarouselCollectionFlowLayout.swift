@@ -10,23 +10,25 @@ import UIKit
 
 class CarouselCollectionFlowLayout: UICollectionViewFlowLayout {
     
-    // MARK: - Properties    
-    var activeDistance: CGFloat = 200
-    var zoomFactor: CGFloat = 0.3
+    // MARK: - Properties
+    public var activeDistance = CGFloat(200) {
+        didSet {
+            invalidateLayout()
+        }
+    }
     
-    override init() {
-        super.init()
+    public var zoomFactor: CGFloat = 0.3 {
+        didSet {
+            invalidateLayout()
+        }
+    }
+
+    // MARK: - UICollectionViewLayout
+    override func prepare() {
+        super.prepare()
         
         scrollDirection = .horizontal
         minimumLineSpacing = 40
-    }
-    
-    required init?(coder aDecoder: NSCoder) {
-        fatalError("init(coder:) has not been implemented")
-    }
-    
-    override func prepare() {
-        super.prepare()
         
         guard let collectionView = collectionView else { return }
         let verticalInsets = (collectionView.frame.height - collectionView.adjustedContentInset.top - collectionView.adjustedContentInset.bottom - itemSize.height) / 2
@@ -36,10 +38,10 @@ class CarouselCollectionFlowLayout: UICollectionViewFlowLayout {
     
     override func layoutAttributesForElements(in rect: CGRect) -> [UICollectionViewLayoutAttributes]? {
         guard let collectionView = collectionView else { return nil }
+        
         let rectAttributes = super.layoutAttributesForElements(in: rect)!.map { $0.copy() as! UICollectionViewLayoutAttributes }
         let visibleRect = CGRect(origin: collectionView.contentOffset, size: collectionView.frame.size)
         
-        // Make the cells be zoomed when they reach the center of the screen
         for attributes in rectAttributes where attributes.frame.intersects(visibleRect) {
             let distance = visibleRect.midX - attributes.center.x
             let normalizedDistance = distance / activeDistance

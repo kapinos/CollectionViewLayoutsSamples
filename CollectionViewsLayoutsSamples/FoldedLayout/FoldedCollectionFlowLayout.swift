@@ -49,7 +49,7 @@ class FoldedCollectionFlowLayout: UICollectionViewLayout {
         }
     }
     
-    // MARK: UICollectionViewLayout
+    // MARK: - UICollectionViewLayout
     override open var collectionViewContentSize: CGSize {
         guard let collectionView = collectionView else { return CGSize.zero }
         

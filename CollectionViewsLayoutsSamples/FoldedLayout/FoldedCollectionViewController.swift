@@ -49,7 +49,7 @@ private extension FoldedCollectionViewController {
 // MARK: - UIPickerViewDelegate, UIPickerViewDataSource
 extension FoldedCollectionViewController: UIPickerViewDelegate, UIPickerViewDataSource {
     func pickerView(_ pickerView: UIPickerView, attributedTitleForRow row: Int, forComponent component: Int) -> NSAttributedString? {
-        let title = NSAttributedString(string: self.pickerData[row], attributes: [NSAttributedString.Key.foregroundColor : UIColor.white])
+        let title = NSAttributedString(string: self.pickerData[row], attributes: [NSAttributedString.Key.foregroundColor : UIColor.yellow])
         return title
     }
     

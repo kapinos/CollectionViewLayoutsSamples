@@ -9,7 +9,15 @@
 import UIKit
 
 class CarouselCollectionViewCell: UICollectionViewCell {
-    func configure() {
+    @IBOutlet weak var imageView: UIImageView!
+    
+    override func prepareForReuse() {
+        super.prepareForReuse()
+        imageView.image = nil
+    }
+    
+    func configure(with image: UIImage?) {
+        self.imageView.image = image
         contentView.backgroundColor = .green
         contentView.layer.borderColor = UIColor.darkGray.cgColor
         contentView.layer.borderWidth = 1

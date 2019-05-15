@@ -9,8 +9,11 @@
 import UIKit
 
 class CarouselCollectionDataSource: NSObject, UICollectionViewDataSource {
+    let images = [UIImage(named: "star_0"), UIImage(named: "star_1"), UIImage(named: "star_2"),
+                  UIImage(named: "star_3"), UIImage(named: "star_4"), UIImage(named: "star_5")]
+    
     func collectionView(_ collectionView: UICollectionView, numberOfItemsInSection section: Int) -> Int {
-        return 10
+        return images.count
     }
     
     func collectionView(_ collectionView: UICollectionView, cellForItemAt indexPath: IndexPath) -> UICollectionViewCell {
@@ -18,7 +21,9 @@ class CarouselCollectionDataSource: NSObject, UICollectionViewDataSource {
             return CarouselCollectionViewCell()
         }
         
-        cell.configure()
+        if images.indices.contains(indexPath.row) {
+            cell.configure(with: images[indexPath.row])
+        }
         
         return cell
     }
