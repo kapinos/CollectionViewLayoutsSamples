@@ -19,6 +19,12 @@ enum FoldingType: String, CaseIterable {
 class FoldedCollectionFlowLayout: UICollectionViewLayout {
     
     // MARK: - Properties
+    public var foldingType = FoldingType.straightUp {
+        didSet {
+            invalidateLayout()
+        }
+    }
+    
     public var itemSize = CGSize(width: 200, height: 300) {
         didSet {
             invalidateLayout()
@@ -32,12 +38,6 @@ class FoldedCollectionFlowLayout: UICollectionViewLayout {
     }
     
     public var maximumVisibleItems: Int = 4 {
-        didSet {
-            invalidateLayout()
-        }
-    }
-    
-    public var foldingType = FoldingType.straightUp {
         didSet {
             invalidateLayout()
         }

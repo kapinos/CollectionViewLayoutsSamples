@@ -90,7 +90,7 @@
                         <autoresizingMask key="autoresizingMask" widthSizable="YES" heightSizable="YES"/>
                         <subviews>
                             <collectionView clipsSubviews="YES" multipleTouchEnabled="YES" contentMode="scaleToFill" dataMode="prototypes" translatesAutoresizingMaskIntoConstraints="NO" id="Nmx-fw-IS8">
-                                <rect key="frame" x="0.0" y="44" width="414" height="769"/>
+                                <rect key="frame" x="0.0" y="64" width="414" height="729"/>
                                 <color key="backgroundColor" white="1" alpha="1" colorSpace="calibratedWhite"/>
                                 <collectionViewFlowLayout key="collectionViewLayout" minimumLineSpacing="10" minimumInteritemSpacing="10" id="xKk-8M-lff">
                                     <size key="itemSize" width="120" height="160"/>
@@ -127,9 +127,9 @@
                         <color key="backgroundColor" white="1" alpha="1" colorSpace="custom" customColorSpace="genericGamma22GrayColorSpace"/>
                         <constraints>
                             <constraint firstItem="Nmx-fw-IS8" firstAttribute="leading" secondItem="i9c-JO-hvZ" secondAttribute="leading" id="3Ae-JW-FN6"/>
-                            <constraint firstItem="Nmx-fw-IS8" firstAttribute="top" secondItem="i9c-JO-hvZ" secondAttribute="top" id="Aff-HH-Dnf"/>
+                            <constraint firstItem="Nmx-fw-IS8" firstAttribute="top" secondItem="i9c-JO-hvZ" secondAttribute="top" constant="20" id="Aff-HH-Dnf"/>
                             <constraint firstItem="i9c-JO-hvZ" firstAttribute="trailing" secondItem="Nmx-fw-IS8" secondAttribute="trailing" id="M9K-NR-DHh"/>
-                            <constraint firstItem="i9c-JO-hvZ" firstAttribute="bottom" secondItem="Nmx-fw-IS8" secondAttribute="bottom" id="xby-CK-h9y"/>
+                            <constraint firstItem="i9c-JO-hvZ" firstAttribute="bottom" secondItem="Nmx-fw-IS8" secondAttribute="bottom" constant="20" id="xby-CK-h9y"/>
                         </constraints>
                         <viewLayoutGuide key="safeArea" id="i9c-JO-hvZ"/>
                     </view>
@@ -140,7 +140,7 @@
                 </viewController>
                 <placeholder placeholderIdentifier="IBFirstResponder" id="aCm-Zs-fxk" userLabel="First Responder" sceneMemberID="firstResponder"/>
             </objects>
-            <point key="canvasLocation" x="547.82608695652175" y="750"/>
+            <point key="canvasLocation" x="419" y="750"/>
         </scene>
         <!--Tab Bar Controller-->
         <scene sceneID="hXz-SZ-ggc">

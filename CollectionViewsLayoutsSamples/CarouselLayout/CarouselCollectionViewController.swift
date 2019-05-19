@@ -18,14 +18,14 @@ class CarouselCollectionViewController: UIViewController {
     override func viewDidLoad() {
         super.viewDidLoad()
         
-        configure()
+        configureCollectionView()
     }
 }
 
 
 // MARK: - Private
 private extension CarouselCollectionViewController {
-    func configure() {
+    func configureCollectionView() {
         collectionView.backgroundColor = .clear
         collectionView.dataSource = collectionDataSource
         layout.itemSize = CGSize(width: 150, height: 200)

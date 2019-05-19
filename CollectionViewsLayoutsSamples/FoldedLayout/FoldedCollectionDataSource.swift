@@ -17,9 +17,8 @@ class FoldedCollectionDataSource: NSObject, UICollectionViewDataSource {
     }
     
     func collectionView(_ collectionView: UICollectionView, cellForItemAt indexPath: IndexPath) -> UICollectionViewCell {
-        guard let cell = collectionView.dequeueReusableCell(withReuseIdentifier: "foldedCell", for: indexPath) as? FoldedCollectionViewCell else {
-            return FoldedCollectionViewCell()
-        }
+        guard let cell = collectionView.dequeueReusableCell(withReuseIdentifier: "foldedCell", for: indexPath) as? FoldedCollectionViewCell else { return FoldedCollectionViewCell() }
+        
         if images.indices.contains(indexPath.row) {
             cell.configure(with: images[indexPath.row])
         }

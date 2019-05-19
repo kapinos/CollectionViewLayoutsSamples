@@ -14,21 +14,22 @@ class FoldedCollectionViewController: UIViewController {
     @IBOutlet weak var collectionView: UICollectionView!
     @IBOutlet weak var foldingTypePicker: UIPickerView!
     
-    let layout = FoldedCollectionFlowLayout()
-    let collectionDataSource = FoldedCollectionDataSource()
-    let pickerData = FoldingType.allCases.map{ $0.rawValue }
+    // MARK: - Properties
+    private let layout = FoldedCollectionFlowLayout()
+    private let collectionDataSource = FoldedCollectionDataSource()
+    private let pickerData = FoldingType.allCases.map{ $0.rawValue }
     
     override func viewDidLoad() {
         super.viewDidLoad()
         
-        configure()
+        configureCollectionView()
     }
 }
 
 
 // MARK: - Private
 private extension FoldedCollectionViewController {
-    func configure() {
+    func configureCollectionView() {
         self.view.backgroundColor = .black
         
         foldingTypePicker.delegate = self
@@ -64,9 +65,8 @@ extension FoldedCollectionViewController: UIPickerViewDelegate, UIPickerViewData
     // selected value
     func pickerView(_ pickerView: UIPickerView, didSelectRow row: Int, inComponent component: Int) {
         let value = pickerData[row]
-        if let type = FoldingType(rawValue: value) {
-            layout.foldingType = type
-        }
+        guard let type = FoldingType(rawValue: value) else { return }
+        layout.foldingType = type
     }
 }
 
